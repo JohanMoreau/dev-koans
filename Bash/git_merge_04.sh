@@ -1,0 +1,3 @@
+$ git mergetool
+...
+$ git commit
