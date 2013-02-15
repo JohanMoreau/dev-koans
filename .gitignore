@@ -1,3 +1,4 @@
+*.csproj
 *.gem
 *.swp
 *.pyc
