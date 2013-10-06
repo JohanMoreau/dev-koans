@@ -27,3 +27,8 @@ dist/
 doc/_build/
 distribute-*
 *.class
+*.exe
+*.sln
+*.mdb
+*.userprefs
+*.fls
