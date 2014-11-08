@@ -32,3 +32,4 @@ distribute-*
 *.mdb
 *.userprefs
 *.fls
+a.out

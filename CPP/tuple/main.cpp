@@ -18,6 +18,12 @@ struct as_vector< std::tuple<Ts...> >
 template<typename T>
 using as_vector_t = typename as_vector<T>::type;
 
+templace<typename T>
+struct soa
+{
+	using data_type = as_vector_t<T>;
+};
+
 int main()
 {
 	as_vector_t<int> x;
