@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import double_slider.*?>
+
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="608.0" 
+    xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+	fx:controller="DemoFXController">
+      <center>
+        <HBox prefHeight="384.0" prefWidth="560.0">
+          <children>
+            <GridPane alignment="CENTER">
+              <children>
+                <Label text="Fichier a ouvrir" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <ChoiceBox GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="myCombo" >
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                    </FXCollections>
+                  </items>
+                </ChoiceBox>
+                <TextArea editable="false" prefColumnCount="40" prefHeight="128.0" prefWidth="200.0" scaleX="1.0" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.vgrow="ALWAYS" 
+                fx:id="parfileTxt"/>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="206.0" minHeight="10.0" prefHeight="206.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+              <children>
+                <Separator minHeight="-Infinity" orientation="VERTICAL" prefHeight="70.0" />
+                <Label text="Scores">
+                  <font>
+                    <Font name="System Bold" size="13.0" fx:id="x1" />
+                  </font>
+                </Label>
+                <Separator minHeight="-Infinity" orientation="VERTICAL" prefHeight="91.0" VBox.vgrow="ALWAYS" />
+                <FlowPane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                    <Label text="Id" />
+                    <DoubleSlider min="0" max="10" />
+                  </children>
+                </FlowPane>
+                <FlowPane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                    <Label text="Coo" />
+                    <Slider />
+                  </children>
+                </FlowPane>
+                <FlowPane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                    <Label text="Otypes" />
+                    <Slider />
+                  </children>
+                </FlowPane>
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+      </center>
+      <right>
+        <TextArea prefWidth="200.0" wrapText="true" />
+      </right>
+      <top>
+        <Label alignment="CENTER" contentDisplay="CENTER" text="Raccord Interface FX" BorderPane.alignment="TOP_CENTER" 
+        fx:id="title"/>
+      </top>
+    </BorderPane>
+ 
