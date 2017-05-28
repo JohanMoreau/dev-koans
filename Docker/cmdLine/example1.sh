@@ -9,4 +9,6 @@ sudo docker ps # show active containers (-a to show all containers)
 sudo docker logs myUbuntu
 sudo docker attach myUbuntu # retake the hand on the container
 sudo docker run -d -p 8888:80 ubuntu # export 8888 on master
+sudo docker stop # SIGTERM suivi d'un SIGKILL
+sudo docker kill # SIGKILL directement
 
