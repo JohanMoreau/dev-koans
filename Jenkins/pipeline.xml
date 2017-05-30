@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.11">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty plugin="gitlab-plugin@1.4.5">
+      <gitLabConnection></gitLabConnection>
+    </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <com.dabsquared.gitlabjenkins.GitLabPushTrigger plugin="gitlab-plugin@1.4.5">
+          <spec></spec>
+          <triggerOnPush>true</triggerOnPush>
+          <triggerOnMergeRequest>true</triggerOnMergeRequest>
+          <triggerOpenMergeRequestOnPush>never</triggerOpenMergeRequestOnPush>
+          <triggerOnNoteRequest>true</triggerOnNoteRequest>
+          <noteRegex>Jenkins please retry a build</noteRegex>
+          <ciSkip>true</ciSkip>
+          <skipWorkInProgressMergeRequest>true</skipWorkInProgressMergeRequest>
+          <setBuildDescription>true</setBuildDescription>
+          <branchFilterType>All</branchFilterType>
+          <includeBranchesSpec></includeBranchesSpec>
+          <excludeBranchesSpec></excludeBranchesSpec>
+          <targetBranchRegex></targetBranchRegex>
+          <secretToken>{AQAAABAAAAAw0zljMEGf1gTNKXBCMdK37QjeuG0m0lPphnm6vD2RWBvU2CXFACAIocJ02lCMPWYYMzoB2w88YipU3d+XNRcKNA==}</secretToken>
+        </com.dabsquared.gitlabjenkins.GitLabPushTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.32">
+    <script>node(&quot;centos-7-gcc&quot;) {
+    stage(&apos;checkout&apos;) {
+        checkout([$class: &apos;GitSCM&apos;,  
+        userRemoteConfigs: [[
+            credentialsId: &apos;sshkey&apos;, 
+            url: &quot;ssh://git@gitlab/root/test.git&quot;]]
+            ])}
+    stage(&apos;make&apos;) {
+        gitlabCommitStatus(&quot;build&quot;) {
+            sh &quot;make&quot;
+        }
+    }
+}
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
